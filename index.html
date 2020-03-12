@@ -1,0 +1,40 @@
+<script>
+	let maxSum = 18800;
+	let nominal = [1000,500,200,100,50,20,10,5,2,1];
+	let avBalance = [];
+	let box = 0;
+	
+	
+	let needSum = +prompt('Enter need you sum: ',0);
+	
+	let counterSum = () =>{
+	
+		for(let i = 0; i < nominal.length; i++){
+
+		
+		if(needSum % nominal[i] === 0){
+			
+			avBalance.push(needSum / nominal[i]);
+			needSum = 0;
+			
+		}else{
+			
+			box = needSum - ( needSum % nominal[i]);
+			avBalance.push(box / nominal[i]);
+			needSum = needSum % nominal[i];
+			
+		};
+		
+			document.write(`${nominal[i]} x ${avBalance[i]} </br> `);
+		};
+	};
+	
+	if(needSum <= 0 || needSum > 18800){
+		alert('enter correct');
+		needSum = 0;
+	}else{
+		counterSum();
+	};	
+	
+	
+</script>
